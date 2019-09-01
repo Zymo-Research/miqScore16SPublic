@@ -1,3 +1,10 @@
+def sumDictionary(dictionary:dict):
+    sum = 0
+    for key in dictionary:
+        if key:
+            sum += dictionary[key]
+    return sum
+
 
 def generateReadFateChartBody(readFateTable:dict, readFatePrintNames:dict=None):
     printReadFateTable = {}
@@ -21,8 +28,7 @@ def generateReadFateChartBody(readFateTable:dict, readFatePrintNames:dict=None):
 
 
 def generateAbsoluteReadFateCounts(miqScore):
-    from . import miqScoreNGSReadCountPublic
-    referenceCounts = miqScoreNGSReadCountPublic.generalDictOperations.sumDictionary(miqScore.referenceReadCounts)
+    referenceCounts = sumDictionary(miqScore.referenceReadCounts)
     absoluteReadFates = miqScore.nonreferenceReadCounts.copy()
     absoluteReadFates["Reference"] = referenceCounts
     return absoluteReadFates
