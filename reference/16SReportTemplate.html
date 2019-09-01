@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>%%SAMPLENAME%% 16S MIQ REPORT</title>
+</head>
+<body>
+<h1 style="text-align: center;"><strong>MIQ 16S REPORT</strong></h1>
+<h4 style="text-align: center;"><strong></strong>Sample ID: %%SAMPLENAME%%</h4>
+<p><strong></strong></p>
+<ol>
+
+
+<li style="text-align: justify;">
+<h3><strong>MIQ (Measurement Integrity Quotient Score)</strong></h3>
+Your score: <span style="font-size: xx-large;"><strong>%%MIQSCORE%%</strong></span>
+<p><span style="font-size: medium;">The miq score is used with a mock community or other known input standard with known manufacturing tolerances.  The formula for calculating this score is based off of the root mean squared of errors with an adjustment for known variability in the standard itself.  This number is a single metric that represents the entire complex pipeline.  As such, a low score can be due to multiple factors.  The bias identification (radar) plots below can suggest specific biases in analysis (such as bias against hard-to-lyse organisms).</span></p>
+</li>
+
+
+<li>
+<h3><strong>Bias Detection (Radar) Plots</strong></h3>
+<table border="0" style="border-collapse: collapse; width: 100%; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="width: 33.3333%;">
+<p><img src="data:image/png;base64,%%GOODRADARPLOT%%" alt="Good Example Radar Plot" width="395" height="296" caption="false" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p style="text-align: center;">Good (Example)</p>
+</td>
+<td style="width: 33.3333%; text-align: center;">
+<p><img src="data:image/png;base64,%%SAMPLERADARPLOT%%" alt="Your Sample" width="395" height="296" caption="false" /></p>
+<p><strong>%%SAMPLENAME%%</strong></p>
+</td>
+<td style="width: 33.3333%; text-align: center;">
+<p><img src="data:image/png;base64,%%BADRADARPLOT%%" alt="Bad Example Radar Plot" width="395" height="296" caption="false" /></p>
+<p>Biased (Example)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<span style="font-size: medium;">Radar plots, while they ultimately show similar data to the composition bar plots, are extremely useful because they can show the observed proportion of each organism relative to the expected, and organisms with similar features or behaviors can be grouped together opposite those with differing properties.&nbsp; An ideal plot should have all the points and mass collected around the 100% mark, indicating that the observed proportion of each organism was at or near 100% of expected.&nbsp; In general, if the mass appears to be shifted up or down, there was likely to have been a bias with regard to that property.&nbsp; Additionally, if the mass appears to be flattened from the top and bottom and widened in the central area, that may represent a bias against both extremes.</span></li>
+
+
+<li>
+<h3><strong>Sample Composition</strong></h3>
+<strong><img src="data:image/png;base64,%%COMPOSITIONBARPLOT%%" alt="Stacked bar plot of composition" width="600" height="429" style="display: block; margin-left: auto; margin-right: auto;" /></strong></li>
+
+
+<li>
+<h3><strong>Read Fate Counts</strong></h3>
+<table border="0" style="border-collapse: collapse; width: 100%;">
+<tbody>
+<tr>
+<td style="width: 50%;">
+<table border="2" style="border-collapse: collapse; width: 100%;">
+<tbody>
+<tr style="background-color: #009548; color: white;">
+<td style="width: 50%; text-align: center; height: 21px;">Read Fate</td>
+<td style="width: 50%; text-align: center; height: 21px;">Count</td>
+</tr>
+%%READFATETABLE%%
+</tbody>
+</table>
+</td>
+<td style="width: 50%;" valign="center"><img src='data:image/png;base64,%%READFATECHART%%' alt="Pie Chart of Read Fates" width="400" caption="false" style="display: block; margin-left: auto; margin-right: auto;" /></td>
+</tr>
+</tbody>
+</table>
+<span style="font-size: medium;">Read fates can be used to determine many major issues with your sequencing run.  Ideally, nearly every read should map to the expected reference genome for the standard.  These values are best compared to other standard analyses run under the same conditions.  A significant change in the total number of reads could indicate a possible failure of the sequencing run or library prep, as would a larger than expected proportion of reads being filtered out for poor quality.  Large numbers of reads that are of good quality, but cannot be mapped to the reference genome for the standard, might suggest a potential contaminant in the sample.  Finally, every analysis method can have its own specific read filtering behaviors, such as chimeric read removal in 16S ribosomal RNA gene analysis.</span></li>
+</ol>
+</body>
+</html>

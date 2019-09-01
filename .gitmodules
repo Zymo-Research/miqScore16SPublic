@@ -1,0 +1,6 @@
+[submodule "miqScoreNGSReadCountPublic"]
+	path = miqScoreNGSReadCountPublic
+	url = git@github.com:Zymo-Research/miqScoreNGSReadCountPublic.git
+[submodule "Figaro"]
+	path = Figaro
+	url = git@github.com:Zymo-Research/Figaro.git
