@@ -32,7 +32,7 @@ To do this, create the following directory structure somewhere on your system wh
 +-- input
 |  +-- sequence
 |     +-- standard_submitted_R1.fastq
-|     +- -standard_submitted_R2.fastq
+|     +-- standard_submitted_R2.fastq
 +-- working
 +-- output
 ```
