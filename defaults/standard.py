@@ -6,5 +6,5 @@ truncQ = 2
 minOverlap = 10
 maxMismatch = 2
 loggingLevel = "INFO"
-maxReadCount = 100000
+maxReadCount = 0
 trimParameterDownsample = -1

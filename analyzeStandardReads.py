@@ -60,8 +60,9 @@ def validateFastqPair(forwardPath:str, reversePath:str):
             raise RuntimeError("Fastq validation should only return either False or a non-negative integer. This code should be unreachable and this is a bug.")
         logger.error(errorMessage)
         raise miqScore16SPublicSupport.formatReaders.fastq.fastqHandler.FastqFormatError(errorMessage)
-    if readCount > parameters.maxReadCount.value:
-        raise RuntimeError("Max fastq read count exceeded for this sample. Max: %s. Read count: %s" %(parameters.maxReadCount.value, readCount))
+    if parameters.maxReadCount.value > 0:
+        if readCount > parameters.maxReadCount.value:
+            raise RuntimeError("Max fastq read count exceeded for this sample. Max: %s. Read count: %s" %(parameters.maxReadCount.value, readCount))
     return True
 
 
