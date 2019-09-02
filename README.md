@@ -17,7 +17,7 @@ This guide assumes you already have Docker installed and running on your system 
 
 #### Downloading and building the image
 ```
-git clone https://github.com/Zymo-Research/miqScore16SPublic.git
+git clone --recursive https://github.com/Zymo-Research/miqScore16SPublic.git
 cd miqScore16SPublic
 docker build -t miqscore16s .
 ```
