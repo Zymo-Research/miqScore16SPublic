@@ -391,7 +391,7 @@ def generateReport(result:miqScoreNGSReadCountPublic.MiqScoreData):
     templateFile.close()
     goodMiqPath = os.path.join(os.path.split(__file__)[0], "reference", "goodMiq.json")
     badMiqPath = os.path.join(os.path.split(__file__)[0], "reference", "badMiq.json")
-    goodMiq, badMiq = miqScoreNGSReadCountPublic.loadExampleData(goodMiqPath, badMiqPath, referenceData)
+    goodMiq, badMiq = miqScoreNGSReadCountPublic.loadExampleData(goodMiqPath, badMiqPath, referenceData, "16s")
     replacementTable = miqScore16SPublicSupport.reporting.generateReplacementTable(result, goodMiq, badMiq, readFatePrintNames=readFatePrintNames)
     report = miqScoreNGSReadCountPublic.reportGeneration.generateReport(template, replacementTable)
     reportFilePath = os.path.join(parameters.outputFolder.value, "%s.html" % parameters.sampleName.value)
