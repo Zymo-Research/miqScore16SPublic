@@ -9,7 +9,7 @@ import miqScoreNGSReadCountPublic
 def getApplicationParameters():
     parameters = miqScore16SPublicSupport.parameters.environmentParameterParser.EnvParameters()
     parameters.addParameter("sampleName", str, required=True, externalValidation=True)
-    parameters.addParameter("maxReadCount", int, default=default.maxReadCount, lowerBound=10000, upperBound=20000000)
+    parameters.addParameter("maxReadCount", int, default=default.maxReadCount, lowerBound=0, upperBound=20000000)
     parameters.addParameter("forwardReads", str, default = default.forwardReads, expectedFile=True)
     parameters.addParameter("reverseReads", str, default=default.reverseReads, expectedFile=True)
     parameters.addParameter("forwardPrimerLength", int, lowerBound=15, upperBound=40, required=True)
@@ -151,11 +151,7 @@ def getTrimmingParametersWithFigaro(sequenceFolder):
         resultTable = pickle.load(resultTablePickle)
         resultTablePickle.close()
     else:
-        resultTable, forwardCurve, reverseCurve = Figaro.figaro.runAnalysis(sequenceFolder, parameters.minCombinedReadLength.value, parameters.forwardPrimerLength.value, parameters.reversePrimerLength.value, parameters.fileNamingStandard.value, parameters.trimParameterDownsample.value, parameters.trimParameterPercentile.value)
-        # import pickle
-        # file = open("/data/output/trimParameters.pkl", 'wb')
-        # pickle.dump(resultTable, file)
-        # file.close()
+        resultTable, forwardCurve, reverseCurve = Figaro.figaro.runAnalysis(sequenceFolder, parameters.ampliconLength.value, parameters.forwardPrimerLength.value, parameters.reversePrimerLength.value, parameters.minOverlap.value, parameters.fileNamingStandard.value, parameters.trimParameterDownsample.value, parameters.trimParameterPercentile.value)
     return resultTable[0]
 
 
