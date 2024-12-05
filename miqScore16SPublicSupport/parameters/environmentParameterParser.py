@@ -49,9 +49,9 @@ class EnvVariable(object):
         self.logLevel = logLevel
         self.externalValidation = externalValidation
         self.setValueValidations()
-        self.runValidations()
         self.environmentVariableName = name.upper()
         self.usingDefaultValue = not self.setEnvironmentValue()
+        self.runValidations()
 
     def setValueValidations(self):
         if self.lowerBound is None and self.upperBound is None:
